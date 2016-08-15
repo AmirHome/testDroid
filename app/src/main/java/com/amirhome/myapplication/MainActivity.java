@@ -6,9 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.d("MainActivity","onCreate");
+
+        Button btn = (Button) findViewById(R.id.button2);
+        btn.setOnClickListener(new View.OnClickListener(){
+            public void onClick ( View v){
+               Log.d("MainActivity","onClick");
+            }
+        });
 
 
         TextView tv = (TextView) findViewById(R.id.longText);
@@ -61,5 +73,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void registerClickHandler(View view) {
+        Button btn = (Button) view;
+//        EditText et = (EditText) view;
+        Log.d( "MainActivity", "registerClickHandler" + btn.getText() );
     }
 }

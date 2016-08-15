@@ -36,7 +36,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="New Button" />
+        android:text="New Button"
+        android:onClick="registerClickHandler"/>
 
     <TextView
         android:layout_width="wrap_content"
