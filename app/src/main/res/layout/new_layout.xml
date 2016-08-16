@@ -66,12 +66,14 @@
     </ScrollView>
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/imageView"
         android:layout_above="@+id/scrollView"
-        android:layout_toStartOf="@+id/textView"
-        android:src="@drawable/amir-logo"/>
+        android:src="@drawable/amir_logo"
+        android:contentDescription="@string/logo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false" />
 
 
 </RelativeLayout>
