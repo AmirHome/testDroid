@@ -1,5 +1,6 @@
 package com.amirhome.myapplication;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,19 +17,21 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String LOG_TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("MainActivity","onCreate");
+        Log.d(LOG_TAG,"onCreate");
 
-        Button btn = (Button) findViewById(R.id.button2);
+/*        Button btn = (Button) findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener(){
             public void onClick ( View v){
-               Log.d("MainActivity","onClick");
+               Log.d(LOG_TAG,"onClick");
             }
-        });
+        });*/
 
 
         TextView tv = (TextView) findViewById(R.id.longText);
@@ -54,8 +57,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Log.d(LOG_TAG,"Changed to portrait");
+        }else {
+            Log.d(LOG_TAG,"Changed to Landscape");
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d(LOG_TAG,"onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d(LOG_TAG,"onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(LOG_TAG,"onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(LOG_TAG,"onStop");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        Log.d(LOG_TAG,"onCreateOptionsMenu");
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -78,6 +118,6 @@ public class MainActivity extends AppCompatActivity {
     public void registerClickHandler(View view) {
         Button btn = (Button) view;
 //        EditText et = (EditText) view;
-        Log.d( "MainActivity", "registerClickHandler" + btn.getText() );
+        Log.d(LOG_TAG, "registerClickHandler" + btn.getText() );
     }
 }
