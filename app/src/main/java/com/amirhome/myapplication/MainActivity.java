@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.InputStream;
 
@@ -99,8 +100,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        Log.d(LOG_TAG,"onCreateOptionsMenu");
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.add(Menu.NONE, Menu.NONE, 103, "New Menu");
+        item.setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener(){
+            public boolean onMenuItemClick( MenuItem item){
+                Toast.makeText(MainActivity.this, "xxx You chose an item...", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
         return true;
     }
 
@@ -126,24 +135,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void imgOnclickHandler(View view) {
-//        ImageView iv = (ImageView) findViewById(R.id.imageView);
-//
-//        String imgName = "amir_logo_2";
-//        int res = getResources().getIdentifier(imgName,"drawable", getPackageName());
-//        iv.setImageResource(res);
+        ImageView iv = (ImageView) findViewById(R.id.imageView);
+
+        String imgName = "amir_logo";
+        int res = getResources().getIdentifier(imgName,"drawable", getPackageName());
+        iv.setImageResource(res);
 
 
+    }
+
+
+    public void actionResourceOnclickHandler(MenuItem item) {
+        ImageView iv = (ImageView) findViewById(R.id.imageView);
+
+        String imgName = "amir_logo_2";
+        int res = getResources().getIdentifier(imgName,"drawable", getPackageName());
+        iv.setImageResource(res);
+    }
+
+    public void actionAssetsOnclickHandler(MenuItem item) {
         String imgName = "amirhome_icon.png";
         ImageView iv = (ImageView) findViewById(R.id.imageView);
         try{
-
             InputStream stream = getResources().getAssets().open(imgName);
             Drawable drawable = Drawable.createFromStream(stream, null);
             iv.setImageDrawable(drawable);
         } catch ( Exception e){
             Log.e(LOG_TAG, e.getMessage());
         }
-
-
     }
 }
