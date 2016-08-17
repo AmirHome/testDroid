@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 //        iv.setImageResource(res);
 
 
-        String imgName = "amir_logo_2.jpeg";
+        String imgName = "amirhome_icon.png";
         ImageView iv = (ImageView) findViewById(R.id.imageView);
         try{
 
