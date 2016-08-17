@@ -1,6 +1,7 @@
 package com.amirhome.myapplication;
 
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,7 +14,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -119,5 +123,27 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button) view;
 //        EditText et = (EditText) view;
         Log.d(LOG_TAG, "registerClickHandler" + btn.getText() );
+    }
+
+    public void imgOnclickHandler(View view) {
+//        ImageView iv = (ImageView) findViewById(R.id.imageView);
+//
+//        String imgName = "amir_logo_2";
+//        int res = getResources().getIdentifier(imgName,"drawable", getPackageName());
+//        iv.setImageResource(res);
+
+
+        String imgName = "amir_logo_2.jpeg";
+        ImageView iv = (ImageView) findViewById(R.id.imageView);
+        try{
+
+            InputStream stream = getResources().getAssets().open(imgName);
+            Drawable drawable = Drawable.createFromStream(stream, null);
+            iv.setImageDrawable(drawable);
+        } catch ( Exception e){
+            Log.e(LOG_TAG, e.getMessage());
+        }
+
+
     }
 }
