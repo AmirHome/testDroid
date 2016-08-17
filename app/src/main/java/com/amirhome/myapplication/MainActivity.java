@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem item = menu.add(Menu.NONE, Menu.NONE, 103, "New Menu");
         item.setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener(){
             public boolean onMenuItemClick( MenuItem item){
-                Toast.makeText(MainActivity.this, "xxx You chose an item...", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "You chose an item...", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
