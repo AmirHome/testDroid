@@ -5,31 +5,29 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
 
-public class MainActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity {
 
-    public static final String LOG_TAG = "MainActivity";
+    public static final String LOG_TAG = "DetailActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d(LOG_TAG,"onCreate");
+        Log.d(LOG_TAG, "onCreate");
 
 /*        Button btn = (Button) findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener(){
@@ -64,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            Log.d(LOG_TAG,"Changed to portrait");
-        }else {
-            Log.d(LOG_TAG,"Changed to Landscape");
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d(LOG_TAG, "Changed to portrait");
+        } else {
+            Log.d(LOG_TAG, "Changed to Landscape");
         }
     }
 
@@ -75,26 +73,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Log.d(LOG_TAG,"onStart");
+        Log.d(LOG_TAG, "onStart");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Log.d(LOG_TAG,"onResume");
+        Log.d(LOG_TAG, "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(LOG_TAG,"onPause");
+        Log.d(LOG_TAG, "onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(LOG_TAG,"onStop");
+        Log.d(LOG_TAG, "onStop");
     }
 
     @Override
@@ -103,10 +101,11 @@ public class MainActivity extends AppCompatActivity {
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
-        MenuItem item = menu.add(Menu.NONE, Menu.NONE, 103, "New Menu");
-        item.setOnMenuItemClickListener( new MenuItem.OnMenuItemClickListener(){
-            public boolean onMenuItemClick( MenuItem item){
-                Toast.makeText(MainActivity.this, "You chose an item...", Toast.LENGTH_LONG).show();
+        MenuItem item = menu.add(Menu.NONE, Menu.NONE, 104, "New Menu");
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(DetailActivity.this, "You chose an item...", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
@@ -131,14 +130,14 @@ public class MainActivity extends AppCompatActivity {
     public void registerClickHandler(View view) {
         Button btn = (Button) view;
 //        EditText et = (EditText) view;
-        Log.d(LOG_TAG, "registerClickHandler" + btn.getText() );
+        Log.d(LOG_TAG, "registerClickHandler" + btn.getText());
     }
 
     public void imgOnclickHandler(View view) {
         ImageView iv = (ImageView) findViewById(R.id.imageView);
 
         String imgName = "amir_logo";
-        int res = getResources().getIdentifier(imgName,"drawable", getPackageName());
+        int res = getResources().getIdentifier(imgName, "drawable", getPackageName());
         iv.setImageResource(res);
 
 
@@ -149,18 +148,18 @@ public class MainActivity extends AppCompatActivity {
         ImageView iv = (ImageView) findViewById(R.id.imageView);
 
         String imgName = "amir_logo_2";
-        int res = getResources().getIdentifier(imgName,"drawable", getPackageName());
+        int res = getResources().getIdentifier(imgName, "drawable", getPackageName());
         iv.setImageResource(res);
     }
 
     public void actionAssetsOnclickHandler(MenuItem item) {
         String imgName = "amirhome_icon.png";
         ImageView iv = (ImageView) findViewById(R.id.imageView);
-        try{
+        try {
             InputStream stream = getResources().getAssets().open(imgName);
             Drawable drawable = Drawable.createFromStream(stream, null);
             iv.setImageDrawable(drawable);
-        } catch ( Exception e){
+        } catch (Exception e) {
             Log.e(LOG_TAG, e.getMessage());
         }
     }

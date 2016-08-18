@@ -1,22 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.amirhome.myapplication.MainActivity">
+    tools:context=".DetailActivity">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="101"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings2"
+        android:onClick="actionResourceOnclickHandler"
         android:orderInCategory="102"
         android:title="@string/img_resource"
-        app:showAsAction="never"
-        android:onClick="actionResourceOnclickHandler"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings3"
+        android:onClick="actionAssetsOnclickHandler"
         android:orderInCategory="103"
         android:title="@string/img_assets"
-        app:showAsAction="never"
-        android:onClick="actionAssetsOnclickHandler"/>
+        app:showAsAction="ifRoom" />
 </menu>
