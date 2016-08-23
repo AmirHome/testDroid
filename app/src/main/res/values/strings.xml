@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">AmirHome.com</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">تنظیمات</string>
     <string name="notifyAction">Replace with your own action</string>
-    <string name="i_am_amir_hosseinzade">I am amir hosseinzade.</string>
+    <string name="i_am_amir_hosseinzade">من امیر حسین زاده برنامه نویس هستم</string>
     <string name="lorem_ipsum">
 Lorem Ipsum ist ein einfacher Demo-Text für die Print- und Schriftindustrie. Lorem Ipsum ist in der
 Industrie bereits der Standard Demo-Text seit 1500, als ein unbekannter Schriftsteller eine
@@ -16,5 +16,6 @@ PageMaker" - ebenfalls mit Lorem Ipsum.ülke öğretmen çocuk ışık
     <string name="img_assets">Asseet</string>
     <string name="img_resource">Resource</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="course_name">New Course</string>
+    <string name="title_activity_detail">ActivityDetail</string>
+    <string name="title_activity_course">Course</string>
 </resources>
